@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./website.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 </head>
 
 <body>
@@ -43,15 +44,15 @@
         </div>
         <div class="sub_copy">
             <div class="s_copy">
-                (MINTIST) is a creative identity — <br />
+                (<span id="text3">MINTIST</span>) is a creative identity — <br />
                 a visual studio, <br />
                 an illustration brand, <br />
                 a playful perspective <br />
-                on how we see (and re-see) the world. <br />
+                on how we see (<span id="text2">and&nbsp;re-see</span>) the world. <br />
             </div>
         </div>
     </div>
-    <a href="https://smartstore.naver.com/mintiststudio" class="shop-link" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.naver.com" class="shop-link" target="_blank" rel="noopener noreferrer">
         <div class="shop-fixed">
             <img src="img/cute.png" alt="shop image" />
             <div class="shop-text">
@@ -61,115 +62,114 @@
         </div>
     </a>
     <div class="work_section" id="work_section">
-        <div class="main_work">
-            (work)
-        </div>
+        <div class="main_work">(work)</div>
+      
         <div class="work-list">
-            <a class="work-item" data-image="img/project1.jpg">
-                <div class="work-left">
-                    <h2>01.ANIMAL HOSPITAL</h2>
-                </div>
-                <div class="work-right">
-                    <p>Homepage Design, Visual Identity, Imweb<br>
-                        Photoshop, Illustrator<br>
-                        Korea / 2025</p>
-                </div>
-            </a>
-
-            <a class="work-item" data-image="img/project2.jpg">
-                <div class="work-left">
-                    <h2>02.STSUPPLY</h2>
-                </div>
-                <div class="work-right">
-                    <p>Editorial Design, Visual Identity, Pamphlet<br>
-                        Photoshop, Illustrator, Indesign<br>
-                        United States / 2025</p>
-                </div>
-            </a>
-            <div class="work-item" data-image="img/project3.jpg">
-                <div class="work-left">
-                    <h2>03.FIRSTPLAN</h2>
-                </div>
-                <div class="work-right">
-                    <p>Homepage Design, Visual Identity, Imweb<br>
-                        Photoshop, Illustrator<br>
-                        United States / 2025</p>
-                </div>
+          <a class="work-item" data-image="img/project1.jpg">
+            <div class="work-left">
+              <h2>01.ANIMAL HOSPITAL</h2>
+              <img class="mobile-thumb" src="img/project1.jpg" alt="01.ANIMAL HOSPITAL" loading="lazy" />
             </div>
-            <div class="work-item" data-image="img/project4.jpg">
-                <div class="work-left">
-                    <h2>04.PET SALON</h2>
-                </div>
-                <div class="work-right">
-                    <p>Logo Design, Illustration, Visual Identity<br>
-                        Photoshop, Illustrator,<br>
-                        Korea / 2024</p>
-                </div>
+            <div class="work-right">
+              <p>Homepage Design, Visual Identity, Imweb<br>Photoshop, Illustrator<br>Korea / 2025</p>
             </div>
-            <div class="work-item" data-image="img/project5.gif">
-                <div class="work-left">
-                    <h2>05.CHARACTER</h2>
-                </div>
-                <div class="work-right">
-                    <p>Homepage Design, Visual Identity, Sixshop<br>
-                        Photoshop, Illustrator<br>
-                        Korea / 2020</p>
-                </div>
+          </a>
+      
+          <a class="work-item" data-image="img/project2.jpg">
+            <div class="work-left">
+              <h2>02.STSUPPLY</h2>
+              <img class="mobile-thumb" src="img/project2.jpg" alt="02.STSUPPLY" loading="lazy" />
             </div>
-            <div class="work-item" data-image="img/project6.jpg">
-                <div class="work-left">
-                    <h2>06.MARKETING BOOK</h2>
-                </div>
-                <div class="work-right">
-                    <p>Editorial Design, Book, Visual Identity<br>
-                        Photoshop, Illustrator, Indesign<br>
-                        Korea / 2023</p>
-                </div>
+            <div class="work-right">
+              <p>Editorial Design, Visual Identity, Pamphlet<br>Photoshop, Illustrator, Indesign<br>United States / 2025</p>
             </div>
-            <div class="work-item" data-image="img/project7.jpg">
-                <div class="work-left">
-                    <h2 class="tight-spacing">07.ILLSAN SINDOSIKIDS</h2>
-                </div>
-                <div class="work-right">
-                    <p>Editorial Design, Magazine, Visual Identity<br>
-                        Photoshop, Illustrator, Indesign<br>
-                        Korea / 2023</p>
-                </div>
+          </a>
+      
+          <div class="work-item" data-image="img/project3.jpg">
+            <div class="work-left">
+              <h2>03.FIRSTPLAN</h2>
+              <img class="mobile-thumb" src="img/project3.jpg" alt="03.FIRSTPLAN" loading="lazy" />
             </div>
-            <div class="work-item" data-image="img/project8.jpg">
-                <div class="work-left">
-                    <h2>08.ACEFIT</h2>
-                </div>
-                <div class="work-right">
-                    <p>Branding Design, Logo Design, Visual Identity<br>
-                        Photoshop, Illustrator<br>
-                        Korea / 2023</p>
-                </div>
+            <div class="work-right">
+              <p>Homepage Design, Visual Identity, Imweb<br>Photoshop, Illustrator<br>United States / 2025</p>
             </div>
-            <div class="work-item" data-image="img/project9.gif">
-                <div class="work-left">
-                    <h2>09.TYPEFACE</h2>
-                </div>
-                <div class="work-right">
-                    <p>Html & Css, Type Design, Visual Identity<br>
-                        Photoshop, Illustrator<br>
-                        United States / 2018</p>
-                </div>
+          </div>
+      
+          <div class="work-item" data-image="img/project4.jpg">
+            <div class="work-left">
+              <h2>04.PET SALON</h2>
+              <img class="mobile-thumb" src="img/project4.jpg" alt="04.PET SALON" loading="lazy" />
             </div>
-            <div class="work-item" data-image="img/project10.jpg">
-                <div class="work-left">
-                    <h2>10.HARMONY</h2>
-                </div>
-                <div class="work-right">
-                    <p>Branding Design, Logo Design, Visual Identity<br>
-                        Photoshop, Illustrator<br>
-                        United States / 2017</p>
-                </div>
+            <div class="work-right">
+              <p>Logo Design, Illustration, Visual Identity<br>Photoshop, Illustrator,<br>Korea / 2024</p>
             </div>
-            <!-- 커서 따라다니는 이미지 -->
-            <img class="hover-image" src="" alt="preview" />
-
+          </div>
+      
+          <div class="work-item" data-image="img/project5.gif">
+            <div class="work-left">
+              <h2>05.CHARACTER</h2>
+              <img class="mobile-thumb" src="img/project5.gif" alt="05.CHARACTER" loading="lazy" />
+            </div>
+            <div class="work-right">
+              <p>Homepage Design, Visual Identity, Sixshop<br>Photoshop, Illustrator<br>Korea / 2020</p>
+            </div>
+          </div>
+      
+          <div class="work-item" data-image="img/project6.jpg">
+            <div class="work-left">
+              <h2>06.MARKETING BOOK</h2>
+              <img class="mobile-thumb" src="img/project6.jpg" alt="06.MARKETING BOOK" loading="lazy" />
+            </div>
+            <div class="work-right">
+              <p>Editorial Design, Book, Visual Identity<br>Photoshop, Illustrator, Indesign<br>Korea / 2023</p>
+            </div>
+          </div>
+      
+          <div class="work-item" data-image="img/project7.jpg">
+            <div class="work-left">
+              <h2 class="tight-spacing">07.ILLSAN SINDOSIKIDS</h2>
+              <img class="mobile-thumb" src="img/project7.jpg" alt="07.ILLSAN SINDOSIKIDS" loading="lazy" />
+            </div>
+            <div class="work-right">
+              <p>Editorial Design, Magazine, Visual Identity<br>Photoshop, Illustrator, Indesign<br>Korea / 2023</p>
+            </div>
+          </div>
+      
+          <div class="work-item" data-image="img/project8.jpg">
+            <div class="work-left">
+              <h2>08.ACEFIT</h2>
+              <img class="mobile-thumb" src="img/project8.jpg" alt="08.ACEFIT" loading="lazy" />
+            </div>
+            <div class="work-right">
+              <p>Branding Design, Logo Design, Visual Identity<br>Photoshop, Illustrator<br>Korea / 2023</p>
+            </div>
+          </div>
+      
+          <div class="work-item" data-image="img/project9.gif">
+            <div class="work-left">
+              <h2>09.TYPEFACE</h2>
+              <img class="mobile-thumb" src="img/project9.gif" alt="09.TYPEFACE" loading="lazy" />
+            </div>
+            <div class="work-right">
+              <p>Html & Css, Type Design, Visual Identity<br>Photoshop, Illustrator<br>United States / 2018</p>
+            </div>
+          </div>
+      
+          <div class="work-item" data-image="img/project10.jpg">
+            <div class="work-left">
+              <h2>10.HARMONY</h2>
+              <img class="mobile-thumb" src="img/project10.jpg" alt="10.HARMONY" loading="lazy" />
+            </div>
+            <div class="work-right">
+              <p>Branding Design, Logo Design, Visual Identity<br>Photoshop, Illustrator<br>United States / 2017</p>
+            </div>
+          </div>
+      
+          <!-- 커서 따라다니는 이미지 -->
+          <img class="hover-image" src="" alt="preview" />
         </div>
+      </div>
+      
     </div>
     <div class="info_section">
         <div class="main_info">
@@ -233,43 +233,126 @@
 </body>
 
 </html>
+
+ 
 <script>
-    $('.menu-work').on('click', function () {
-        $('html, body').animate({
-            scrollTop: $('.work_section').offset().top
-        }, 600); // 600ms 동안 부드럽게 스크롤
+document.addEventListener('DOMContentLoaded', () => {
+  const POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const randChar = () => POOL[Math.floor(Math.random() * POOL.length)];
+
+  // 하나의 요소에 스핀+스크램블 적용하는 함수
+  function scrambleSpin(el, {
+    startDelay = 0.3,   // 이 요소 전체 시작 지연(초)
+    pre = 300,          // 프리-스크램블 길이(ms)
+    lap = 0.08,         // 회전 1바퀴 시간(초)
+    times = 12,         // 회전 횟수
+    perCharDelay = 0.07,// 글자 간 스태거(초)
+    kick = 0.15         // 첫 글자 시작 오프셋(초)
+  } = {}) {
+    if (!el) return;
+
+    const target = (el.textContent || "").trim();
+    // 각 글자를 span으로 쪼개고 랜덤 문자로 초기화
+    el.innerHTML = target
+      .split("")
+      .map(ch => `<span class="char" data-final="${ch}">${randChar()}</span>`)
+      .join("");
+
+    const chars = el.querySelectorAll(".char");
+
+    // 프리-스크램블 후 본 애니 시작
+    setTimeout(() => {
+      const start = performance.now();
+      const preTick = (now) => {
+        if (now - start < pre) {
+          chars.forEach(s => (s.textContent = randChar()));
+          requestAnimationFrame(preTick);
+        } else {
+          // 회전하면서 랜덤 → 최종 글자로 고정
+          chars.forEach((span, i) => {
+            const d = kick + i * perCharDelay; // 글자별 지연
+            gsap.to(span, {
+              duration: lap,
+              rotateX: "+=360",
+              repeat: times,
+              ease: "none",
+              delay: d,
+              onRepeat() { span.textContent = randChar(); },
+              onComplete() {
+                span.textContent = span.dataset.final;
+                gsap.fromTo(span, { scale: 1, y: 0 },
+                                   { duration: 0.25, scale: 1.12, y: -1, ease: "back.out(3)", yoyo: true, repeat: 1 });
+              }
+            });
+          });
+        }
+      };
+      requestAnimationFrame(preTick);
+    }, startDelay * 1000);
+  }
+
+  // 적용: 첫 번째(#text) → 약간 먼저, 두 번째(#text2) → 조금 뒤에
+  scrambleSpin(document.getElementById('text3'),  { startDelay: 0.3, times: 12, lap: 0.08 });
+  scrambleSpin(document.getElementById('text2'), { startDelay: 2.2, times: 12, lap: 0.08 });
+
+
+  // ===== jQuery 없이 스무스 스크롤 =====
+  const scrollToSel = (sel) => document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  document.querySelector('.menu-work')?.addEventListener('click', () => scrollToSel('.work_section'));
+  document.querySelector('.menu-info')?.addEventListener('click', () => scrollToSel('.info_section'));
+  document.querySelector('.logo_section')?.addEventListener('click', () => scrollToSel('.contents_wrap'));
+
+  // ===== 호버 프리뷰 (데스크탑) =====
+  const hoverImage = document.querySelector('.hover-image');
+  if (hoverImage) {
+    document.querySelectorAll('.work-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        hoverImage.src = item.getAttribute('data-image');
+        hoverImage.style.opacity = 1;
+      });
+      item.addEventListener('mousemove', (e) => {
+        hoverImage.style.top = `${e.clientY + 10}px`;
+        hoverImage.style.left = `${e.clientX + 10}px`;
+      });
+      item.addEventListener('mouseleave', () => {
+        hoverImage.style.opacity = 0;
+      });
     });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+  const mq = window.matchMedia('(max-width: 768px)');
 
-    $('.menu-info').on('click', function () {
-        $('html, body').animate({
-            scrollTop: $('.info_section').offset().top
-        }, 600); // 600ms 동안 부드럽게 스크롤
-    });
+  function applyMobileThumbs() {
+    if (mq.matches) {
+      document.querySelectorAll('.work-item').forEach(item => {
+        const src = item.getAttribute('data-image');
+        if (!src) return;
 
-    $('.logo_section').on('click', function () {
-        $('html, body').animate({
-            scrollTop: $('.contents_wrap').offset().top
-        }, 600); // 600ms 동안 부드럽게 스크롤
-    });
+        // 이미 붙어있으면 중복 방지
+        if (item.querySelector('img.mobile-thumb')) return;
 
-    const hoverImage = document.querySelector('.hover-image');
-    const workItems = document.querySelectorAll('.work-item');
+        const h2 = item.querySelector('.work-left h2') || item.querySelector('h2');
+        if (!h2) return;
 
-    workItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            const imgPath = item.getAttribute('data-image');
-            hoverImage.src = imgPath;
-            hoverImage.style.opacity = 1;
-        });
+        const img = document.createElement('img');
+        img.className = 'mobile-thumb';
+        img.src = src;
+        img.alt = (h2.textContent || '').trim();
+        img.loading = 'lazy';
 
-        item.addEventListener('mousemove', (e) => {
-            hoverImage.style.top = `${e.clientY + 10}px`;
-            hoverImage.style.left = `${e.clientX + 10}px`;
-        });
+        // h2 바로 아래에 삽입
+        h2.insertAdjacentElement('afterend', img);
+      });
+    } else {
+      // 데스크탑 전환 시 제거
+      document.querySelectorAll('img.mobile-thumb').forEach(img => img.remove());
+    }
+  }
 
-        item.addEventListener('mouseleave', () => {
-            hoverImage.style.opacity = 0;
-        });
-    });
-
+  applyMobileThumbs();
+  (mq.addEventListener ? mq.addEventListener('change', applyMobileThumbs)
+                       : mq.addListener(applyMobileThumbs));
+});
+});
 </script>
