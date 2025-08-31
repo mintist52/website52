@@ -27,56 +27,43 @@ a {
     justify-content: space-between;
     align-items: center;
     font-size: 20px;
-    mix-blend-mode: difference;
-    z-index: 9999;
-
+    mix-blend-mode: difference; // 기본은 difference
+    z-index: 10001;             // 충분히 크게
+    isolation: isolate;         // 자체 스태킹 컨텍스트 생성 → 항상 위로
+  
     .main_menu {
-        font-family: 'Geist Mono', monospace;
-        display: flex;
-        gap: 25px;
-
-        .menu-item {
-            overflow: hidden;
-        }
-
-        .text-wrap {
-            position: relative;
-            display: block;
-        }
-
-        .text {
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .text.old {
-            transform: translateY(0%);
-        }
-
-        .text.new {
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: translateY(100%);
-        }
-
-        .menu-item:hover .text.old {
-            transform: translateY(-100%);
-        }
-
-        .menu-item:hover .text.new {
-            transform: translateY(0%);
-        }
+      font-family: 'Geist Mono', monospace;
+      display: flex;
+      gap: 25px;
+  
+      .menu-item { overflow: hidden; }
+      .text-wrap { position: relative; display: block; }
+      .text { display: block; transition: transform .4s ease; }
+      .text.old { transform: translateY(0%); }
+      .text.new { position: absolute; top: 0; left: 0; transform: translateY(100%); }
+      .menu-item:hover .text.old { transform: translateY(-100%); }
+      .menu-item:hover .text.new { transform: translateY(0%); }
     }
-
-    .mobile_menu {
-        display: none;
+  
+    .mobile_menu { display: none; }
+  
+    /* ✅ 모바일에서만 blend 끄기 — 여기서 &를 쓰거나 속성만 작성 */
+    @media (max-width: 768px) {
+      mix-blend-mode: normal;   // ← 이 줄만으로 .header에 적용됨
+      // 또는 &: { mix-blend-mode: normal; }
     }
-}
+  }
+  
+  /* 프리뷰 이미지가 헤더 아래로 가도록 보정 */
+  .hover-image {
+    z-index: 9998 !important;   // 헤더(10001)보다 낮게
+  }
+  
+
 
 .contents_wrap {
     .main_copy {
-        padding-top: 90px;
+        padding-top: 100px;
         text-align: center;
         font-size: 20vw;
         font-weight: 600;
@@ -86,15 +73,36 @@ a {
         .s_copy {
             font-family: 'Geist Mono', monospace;
             text-align: center;
-            font-size: 3vw;
+            font-size: clamp(14px, 3vw, 42px); // 최소 14px, 보통은 4vw, 최대 40px
             line-height: 1.3;
             margin-bottom: 60px;
+            @media (max-width: 768px) {
+                padding-bottom: 0px; // 모바일에서는 여백 줄임
+              }
+            
+              /* 🧁 초소형 기기 */
+              @media (max-width: 360px) {
+                padding-bottom: 0px; // 아주 작은 화면에서는 더 줄임
+              }
+              #text3, #text2 { display:inline-block; perspective: 600px; }
+              #text3 .char, #text2 .char {
+                  display:inline-block;
+                   transform-origin:center;
+                   will-change: transform, text;
+                  }
+          
+              /* 접근성: 모션 줄이기 환경에선 애니메이션 없이 최종 텍스트만 표시 */
+              @media (prefers-reduced-motion: reduce) {
+               #text3 .char, #text2 .char{ transition: none !important; transform: none !important; }
+              }
         }
     }
+
 }
 
 .shop-link {
     text-decoration: none;
+    display: none;
 
     .shop-fixed {
         position: fixed;
@@ -159,102 +167,210 @@ a {
     padding-top: 100px;
     margin-left: 26px;
     margin-right: 26px;
-
+  
     .work-list {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
-
+  
     .work-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        cursor: crosshair;
-
-        .work-left {
-            width: 65%;
-
-            h2 {
-                font-family: 'Geist Mono', monospace;
-                font-size: 4.7vw;
-                font-weight: 650;
-                margin: 0;
-                line-height: 1.2;
-            }
-
-            .tight-spacing {
-                letter-spacing: -0.04em;
-            }
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      cursor: crosshair;
+  
+      .work-left {
+        width: 65%;
+  
+        h2 {
+          font-family: 'Geist Mono', monospace;
+          font-size: 4.7vw;
+          font-weight: 650;
+          margin: 0;
+          line-height: 1.2;
         }
-
-        .work-right {
-            width: 35%;
-            margin-top: 3px;
-
-            p {
-                font-size: 15px;
-                line-height: 1.5;
-                margin: 0;
-            }
+  
+        .tight-spacing { letter-spacing: -0.04em; }
+      }
+  
+      .work-right {
+        width: 35%;
+        margin-top: 3px;
+  
+        p {
+          font-size: 15px;
+          line-height: 1.5;
+          margin: 0;
         }
+      }
     }
-
+  
     .hover-image {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 300px;
-        height: auto;
-        opacity: 0;
-        pointer-events: none;
-        z-index: 9998;
-        transition: opacity 0.2s ease;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: auto;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transition: opacity 0.2s ease;
     }
+  
+    /* 📱 모바일: 1컬럼 & 타이포 보정 */
+    @media (max-width: 768px) {
+      padding-top: 0;
+      margin-left: 18px;
+      margin-right: 18px;
+  
+      .work-list { gap: 16px; }
+  
+      .work-item {
+        flex-direction: column;   /* 가로 → 세로 */
+        align-items: flex-start;
+        cursor: default;
+        gap: 6px;                 /* 좌/우 블록 사이 여백 */
+      }
+  
+      /* ⬇ 중요: 두 블록 모두 확실히 100%로 */
+      .work-item .work-left,
+      .work-item .work-right { width: 100%; }
+  
+      .work-item .work-left h2 {
+        font-size: clamp(18px, 6.2vw, 28px);
+        line-height: 1.2;
+      }
+  
+      .work-item .work-right {
+        margin-top: 8px;
+        width: 88%;              /* 가독성 위해 살짝 줄임(원하면 100%로 바꿔도 OK) */
+      }
+  
+      .work-item .work-right p {
+        font-size: clamp(13px, 3.8vw, 16px);
+        line-height: 1.6;
+      }
+  
+    
+  
+      /* 모바일은 프리뷰 숨김 */
+      .hover-image { display: none; }
+    }
+    .mobile-thumb { display: none; }
+
+/* 모바일에서만 보이게 + 스타일 */
+@media (max-width: 768px) {
+  .mobile-thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 8px;
+    border-radius: 8px;    // 선택
+    object-fit: cover;     // 이미지 채우기(선택)
+  }
 }
+  
+    /* 🧁 초소형 기기 */
+    @media (max-width: 360px) {
+      padding-top: 0;
+    }
+  
+    /* 터치 환경에선 크로스헤어 커서 제거 (선택) */
+    @media (pointer: coarse) {
+      .work-item { cursor: default; }
+    }
+  }
+  
+  
 
 .info_section {
     padding-top: 100px;
     margin-left: 26px;
     margin-right: 26px;
-
+  
     .info_list {
+      display: flex;
+      justify-content: space-between;
+  
+      .info_left {
+        width: 65%;
         display: flex;
-        justify-content: space-between;
-
-        .info_left {
-            width: 65%;
-            display: flex;
-            flex-direction: column;
-            gap: 5vw;
-        }
-
-        .info_right {
-            width: 35%;
-        }
-
-        .info_item,
-        .info2_item,
-        .info3_item {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 40px;
-        }
-
-        .info_title h2 {
-            font-family: 'Geist Mono', monospace;
-            font-size: 4.7vw;
-            font-weight: 650;
-            margin: 0;
-            letter-spacing: -0.04em;
-        }
-
-        .info_des p {
-            font-size: 1vw;
-            line-height: 1.5;
-            margin: 0;
-        }
+        flex-direction: column;
+        gap: 5vw;
+      }
+  
+      .info_right {
+        width: 35%;
+      }
+  
+      .info_item,
+      .info2_item,
+      .info3_item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+      }
+  
+      .info_title h2 {
+        font-family: 'Geist Mono', monospace;
+        font-size: 4.7vw; // 데스크탑용
+        font-weight: 650;
+        margin: 0;
+        letter-spacing: -0.04em;
+      }
+  
+      .info_des p {
+        font-size: 15px;   // 데스크탑용
+        line-height: 1.5;
+        margin: 0;
+      }
     }
+  
+   /* 📱 모바일 */
+  @media (max-width: 768px) {
+
+        margin-left: 18px;
+        margin-right: 18px;
+        padding-top: 60px;
+    
+    .info_list {           // ← info_list를 포함해서
+      flex-direction: column;
+      gap: 0px;
+
+      .info_left, .info_right { 
+        gap:0px;
+        width: 100%; }
+      
+      /* 제목도 동일하게 구체도로 */
+      .info_title h2 {
+        font-size: clamp(18px, 6vw, 26px);
+        line-height: 1.15;
+      }
+
+      /* 본문: 같은(혹은 더 높은) specificity로 덮어쓰기 */
+      .info_des p {
+        font-size: clamp(14px, 4vw, 18px);
+        line-height: 1.6;
+      }
+     .info_item p br {
+        display: none;
+      }
+    }
+  
+    /* 🧁 초소형 기기(≤360px) 미세 보정 */
+    @media (max-width: 360px) {
+      .info_title h2 {
+        font-size: clamp(17px, 6.8vw, 24px);
+      }
+      .info_des p {
+        font-size: clamp(13px, 4.2vw, 17px);
+      }
+      br {
+        display: none;
+      }
+    }
+  }
 }
 
 .footer_section {
@@ -273,5 +389,11 @@ a {
         font-weight: 600;
         margin-top: 0;
         margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+    .main_copy{
+        padding-top: 0px;
+        }
+
     }
 }
